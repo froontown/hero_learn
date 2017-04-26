@@ -24,7 +24,7 @@ def check_events(hero):
             elif event.key == pygame.K_LEFT:
                 hero.moving_left = False
             elif event.key == pygame.K_UP:
-                herp.moving_up = False
+                hero.moving_up = False
             elif event.key == pygame.K_DOWN:
                 hero.moving_down = False
 
@@ -32,7 +32,7 @@ def check_events(hero):
 def update_screen(ai_settings, screen, hero):
     """Update the screen."""
     # Redraw the screen during each pass through the loop
-    # screen.fill(ai_settings.bg_color) (not using a color)
+    screen.fill(ai_settings.bg_color)
     hero.blitme()
 
     # Display the most recently rendered screen
