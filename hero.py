@@ -27,17 +27,33 @@ class Hero():
 
     def update(self):
         """Going to check the movement of the hero."""
-        if self.moving_right:
+        if self.moving_left and self.rect.left > self.screen_rect.left:
+            self.rect.centerx -= self.ai_settings.hero_speed_factor
+
+        if self.moving_right and self.rect.right < self.screen_rect.right:
             self.rect.centerx += self.ai_settings.hero_speed_factor
 
-        if self.moving_left:
-            self.rect.centerx -= self.ai_settings.hero_speed_factor
-            
-        if self.moving_down:
+        if self.moving_up and self.rect.top > self.screen_rect.top:
+            self.rect.centery -= self.ai_settings.hero_speed_factor
+
+        if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
             self.rect.centery += self.ai_settings.hero_speed_factor
 
-        if self.moving_up:
-            self.rect.centery -= self.ai_settings.hero_speed_factor
+        # if self.moving_left:
+        #     self.rect.centerx -= self.ai_settings.hero_speed_factor
+        #
+        # if self.moving_right:
+        #     self.rect.centerx += self.ai_settings.hero_speed_factor
+        #
+        # if self.moving_up:
+        #     self.rect.centery -= self.ai_settings.hero_speed_factor
+        #
+        # if self.moving_down:
+        #     self.rect.centery += self.ai_settings.hero_speed_factor
+
+        # Update rect object from self.center
+        # self.rect.centerx = self.centerx
+        # self.rect.centery = self.centery
 
 
         # Update rect object from self.center
