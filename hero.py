@@ -32,15 +32,16 @@ class Hero():
 
         if self.moving_left:
             self.rect.centerx -= self.ai_settings.hero_speed_factor
-
-        if self.moving_up:
+            
+        if self.moving_down:
             self.rect.centery += self.ai_settings.hero_speed_factor
 
-        if self.moving_down:
+        if self.moving_up:
             self.rect.centery -= self.ai_settings.hero_speed_factor
 
+
         # Update rect object from self.center
-        self.rect.centerx = self.center
+        # self.rect.centerx = self.center
 
     def blitme(self):
         """Draws the hero!"""

@@ -5,6 +5,7 @@ class Settings():
         """Initialize the settings!"""
         self.screen_width = 1200
         self.screen_height = 800
+        self.bg_color = (0, 0, 0)
 
         # Hero stuff
         self.hero_speed_factor = 5.5
