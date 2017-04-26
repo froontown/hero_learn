@@ -22,26 +22,38 @@ class Hero():
         self.moving_down = False
 
         # For the decimals in hero's speed:
-        self.rect.centerx = float(self.rect.centerx)
-        self.rect.centery = float(self.rect.centery)
+        # self.rect.centerx = float(self.rect.centerx)
+        # self.rect.centery = float(self.rect.centery)
 
     def update(self):
         """Going to check the movement of the hero."""
-        if self.moving_right:
+        if self.moving_left > 0:
+            self.rect.centerx -= self.ai_settings.hero_speed_factor
+
+        if self.moving_right < self.screen_rect.right:
             self.rect.centerx += self.ai_settings.hero_speed_factor
 
-        if self.moving_left:
-            self.rect.centerx -= self.ai_settings.hero_speed_factor
-            
-        if self.moving_down:
-            self.rect.centery += self.ai_settings.hero_speed_factor
-
-        if self.moving_up:
+        if self.moving_up and self.rect.top < self.screen_rect.top:
             self.rect.centery -= self.ai_settings.hero_speed_factor
 
+        if self.moving_down and self.rect.width < 0:
+            self.rect.centery += self.ai_settings.hero_speed.factor
+
+        # if self.moving_left:
+        #     self.rect.centerx -= self.ai_settings.hero_speed_factor
+        #
+        # if self.moving_right:
+        #     self.rect.centerx += self.ai_settings.hero_speed_factor
+        #
+        # if self.moving_up:
+        #     self.rect.centery -= self.ai_settings.hero_speed_factor
+        #
+        # if self.moving_down:
+        #     self.rect.centery += self.ai_settings.hero_speed_factor
 
         # Update rect object from self.center
-        # self.rect.centerx = self.center
+        # self.rect.centerx = self.centerx
+        # self.rect.centery = self.centery
 
     def blitme(self):
         """Draws the hero!"""
